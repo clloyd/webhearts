@@ -25,6 +25,7 @@ function genClickDispatcher() {
 
   function register(callback) {
     listeners.push(callback);
+    console.log(listeners)
   }
 
   function remove(callback) {
@@ -56,8 +57,6 @@ io.on('connection', function (socket) {
   var id = uuid.v4()
 
   var clickCallback = function(data) {
-
-
     if (data.triggerId !== id && currentUrl === data.url) {
       socket.emit('TRIGGER_HEART', data);
     }
@@ -69,6 +68,7 @@ io.on('connection', function (socket) {
   });
 
   socket.on('CLICK', function(data) {
+    console.log(data)
     dispatcher.trigger(data);
   })
 

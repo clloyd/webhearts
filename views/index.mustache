@@ -3,60 +3,13 @@
 
   <script src="/socket.io/socket.io.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-  <script src="/jquery.xpath.min.js"></script>
+  <script src="/webhearts.js"></script>
 
-  <script>
-    var socket = io.connect('http://localhost:9000');
-    var uniqueId = undefined;
+  <link rel="stylesheet" href="/style.css" charset="utf-8">
 
-
-    function getXPath( element ) {
-    var val=element.value;
-        //alert("val="+val);
-        var xpath = '';
-        for ( ; element && element.nodeType == 1; element = element.parentNode )
-        {
-            //alert(element);
-            var id = $(element.parentNode).children(element.tagName).index(element) + 1;
-            (id = '[' + id + ']');
-            xpath = '/' + element.tagName.toLowerCase() + id + xpath;
-        }
-        return xpath;
-    }
-
-    socket.on('ID_REQ', function(data) {
-      uniqueId = data.id;
-
-      console.log("Connected! Receved ID Request. Client ID: " + uniqueId);
-      socket.emit('ID_RES', { url: window.location.href });
-
-      socket.on('TRIGGER_HEART', function(data) {
-        console.log('TRIGGER_HEART', data)
-      })
-
-      document.addEventListener('click', function(e) {
-        socket.emit('CLICK', { xpath: getXPath(e.target), url: window.location.href, triggerId: uniqueId });
-      })
-    });
-  </script>
-
-  <style>
-      .box {
-        width: 33%;
-        display: inline-block;
-        height: 200px;
-
-        background-color: red;
-
-        margin: 3px;
-      }
-
-  </style>
 </head>
 
 <body>
-  Testing: {{message}}
-
   <div class="box">
     BOX1
   </div>
