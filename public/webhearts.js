@@ -28,7 +28,7 @@
   }
 
   function showHeart(xPath) {
-    var el = document.evaluate(xPath, document).iterateNext();
+    var el = document.evaluate(xPath, document, null, XPathResult.ANY_TYPE, null).iterateNext();
 
     if (getComputedStyle(el)["position"] === "static") {
       el.classList.add("enable-hearts");
@@ -58,6 +58,7 @@
     })
 
     document.addEventListener('click', function(e) {
+
       var eventDetails = {
         xpath: getXPath(e.target),
         url: window.location.href,
@@ -67,6 +68,7 @@
       if (eventDetails.xpath.indexOf("/html[1]/body[1]/") !== -1) {
         console.log("Send Click", eventDetails)
         socket.emit('CLICK', eventDetails);
+        showHeart(eventDetails.xpath)
       }
     })
   });
