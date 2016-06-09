@@ -12,7 +12,7 @@ app.set('views', __dirname + '/views');
 
 app.use(express.static('public'));
 
-server.listen(9000);
+server.listen(process.env.PORT || 9000);
 
 app.get('/', function (req, res) {
   res.render('index', { title: 'Hey', message: 'Hello there!'});
