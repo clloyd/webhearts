@@ -1,0 +1,38 @@
+{
+  "name": "webhearts",
+  "version": "0.0.1",
+  "manifest_version": 2,
+  "description": "Make the web a better place... in real time.",
+  "background": {
+    "scripts": [
+      "scripts/background.js"
+    ]
+  },
+  "permissions": [
+    "tabs",
+    "http://www.theguardian.com/*",
+    "https://www.theguardian.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "http://www.theguardian.com/*",
+        "https://www.theguardian.com/*"
+      ],
+      "js": [
+        "scripts/jquery.min.js",
+        "scripts/socket.io.js",
+        "scripts/contentscript.js"
+      ],
+      "css": [
+        "contentstyle.css"
+      ],
+      "run_at": "document_end",
+      "all_frames": false
+    }
+  ],
+  "browser_action": {
+    "default_title": "webhearts",
+    "default_popup": "popup.html"
+  }
+}
