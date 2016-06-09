@@ -1,5 +1,5 @@
 (function() {
-  var socket = io.connect('http://localhost:9000');
+  var socket = io.connect('https://webhearts.herokuapp.comw');
   var uniqueId = undefined;
 
   var colours = ["red", "blue", "green", "purple", "orange"];
