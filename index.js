@@ -68,7 +68,6 @@ io.on('connection', function (socket) {
   });
 
   socket.on('CLICK', function(data) {
-    console.log(data)
     dispatcher.trigger(data);
   })
 

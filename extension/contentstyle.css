@@ -12,21 +12,50 @@
   margin: 3px;
 }
 
-.heart {
+.ext-emotion {
     opacity: 0;
     position: relative;
-    width:14px;
-    height: 22px;
+    width:33px;
+    height: 33px;
     position: absolute;
     right: 20px;
     top: 30px;
+
 }
 
-.heart.movement0 {animation: 1s movement_0 ease-out;}
-.heart.movement1 {animation: 1s movement_1 ease-out;}
-.heart.movement2 {animation: 1s movement_2 ease-out;}
-.heart.movement3 {animation: 1s movement_3 ease-out;}
-.heart.movement4 {animation: 1s movement_4 ease-out;}
+.ext-emotion:before {
+  font-size: 25px;
+}
+
+.ext-emotion.sadness:before {
+  content: "😭";
+}
+
+.ext-emotion.happy:before {
+  content: "😀";
+}
+
+.ext-emotion.anger:before {
+  content: "😡";
+}
+
+.ext-emotion.money:before {
+  content: "🤑";
+}
+
+.ext-emotion.aubergine:before {
+  content: "🍆";
+}
+
+.ext-emotion.poop:before {
+  content:"💩";
+}
+
+.ext-emotion.movement0 {animation: 1s movement_0 ease-out;}
+.ext-emotion.movement1 {animation: 1s movement_1 ease-out;}
+.ext-emotion.movement2 {animation: 1s movement_2 ease-out;}
+.ext-emotion.movement3 {animation: 1s movement_3 ease-out;}
+.ext-emotion.movement4 {animation: 1s movement_4 ease-out;}
 
 @keyframes movement_0 {from {right: 20px; opacity: 1; top: 30px; transform:rotate(0deg);} to {right: 20px; opacity: 0; top: 0px; transform:rotate(0deg);}}
 @keyframes movement_1 {from {right: 20px; opacity: 1; top: 30px; transform:rotate(0deg);} to {right: 30px; opacity: 0; top: 0px; transform:rotate(-6deg);}}
@@ -35,34 +64,8 @@
 @keyframes movement_4 {from {right: 20px; opacity: 1; top: 30px; transform:rotate(0deg);} to {right:  0px; opacity: 0; top: 0px; transform:rotate(12deg);}}
 
 
-.heart.red:before,
-.heart.red:after {
-  background-color: red;
-}
-
-.heart.blue:before,
-.heart.blue:after {
-  background-color: blue;
-}
-
-.heart.green:before,
-.heart.green:after {
-  background-color: green;
-}
-
-.heart.purple:before,
-.heart.purple:after {
-  background-color: purple;
-}
-
-.heart.orange:before,
-.heart.orange:after {
-  background-color: orange;
-}
-
-
-.heart:before,
-.heart:after {
+.ext-emotion.heart:before,
+.ext-emotion.heart:after {
     position: absolute;
     content: "";
     left: 12px;
@@ -83,8 +86,10 @@
          -o-transform-origin: 0 100%;
             transform-origin: 0 100%;
 }
-.heart:after {
+.ext-emotion.heart:after {
     left: 0;
+    background-color: red;
+
     -webkit-transform: rotate(45deg);
        -moz-transform: rotate(45deg);
         -ms-transform: rotate(45deg);

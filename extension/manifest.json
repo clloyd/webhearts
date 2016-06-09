@@ -8,6 +8,10 @@
       "scripts/background.js"
     ]
   },
+  "icons": {
+    "16": "images/heart_16.png",
+    "128": "images/heart_128.png"
+  },
   "permissions": [
     "tabs",
     "http://www.theguardian.com/*",
@@ -33,6 +37,6 @@
   ],
   "browser_action": {
     "default_title": "webhearts",
-    "default_popup": "popup.html"
+    "default_icon": "images/heart_128_off.png" 
   }
 }
